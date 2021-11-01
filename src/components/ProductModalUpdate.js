@@ -14,7 +14,8 @@ function ProductModalUpdate({ oldProduct }) {
 
   const handleChange = (event) =>
     setProduct({ ...product, [event.target.name]: event.target.value });
-
+  const handleImage = (event) =>
+    setProduct({ ...product, image: event.target.files[0] });
   const handleSubmit = (event) => {
     event.preventDefault();
     productStore.updateProduct(product, oldProduct._id);
@@ -37,12 +38,7 @@ function ProductModalUpdate({ oldProduct }) {
               onChange={(e) => handleChange(e)}
               placeholder="Product Name"
             />
-            <input
-              name="image"
-              value={product.image}
-              onChange={handleChange}
-              placeholder="Image"
-            />
+            <input name="image" onChange={handleImage} placeholder="Image" />
             <button type="submit">Edit</button>
           </form>
         </Modal.Body>

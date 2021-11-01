@@ -2,7 +2,7 @@ import { Button, Card, Col } from "react-bootstrap";
 import productStore from "../stores/productStore";
 import ProductModal from "./ProductModal";
 import ProductModalUpdate from "./ProductModalUpdate";
-
+import { observer } from "mobx-react";
 function ProductCard({ product }) {
   const handleDelete = () => productStore.deleteProduct(product._id);
 
@@ -24,4 +24,4 @@ function ProductCard({ product }) {
   );
 }
 
-export default ProductCard;
+export default observer(ProductCard);
